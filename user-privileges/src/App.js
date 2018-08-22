@@ -40,6 +40,13 @@ function reducer(state = {
       case 'underwriter': updatedUser = Object.assign({admin: oldUser.underwriter = !oldUser.underwriter},oldUser); break;
       case 'sales': updatedUser = Object.assign({admin: oldUser.sales = !oldUser.sales},oldUser); break;
       case 'reviewer':updatedUser = Object.assign({admin: oldUser.reviewer = !oldUser.reviewer},oldUser) ; break;
+      case 'GET_INITIAL_STATE':{
+        const newUsers = action.users;
+        return ({
+          columns:state.columns,
+          users:[...newUsers],
+        })
+      };
       default: return state;
     }
     return ({

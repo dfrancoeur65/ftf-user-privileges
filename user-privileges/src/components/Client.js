@@ -1,17 +1,9 @@
-function getUsers() {
-  return fetch(`http://localhost:3001/api/v1/users`, {
+function getUsers(success) {
+  return fetch(`/api/v1/users`, {
     accept: 'application/json',
   }).then(checkStatus)
     .then(parseJSON)
-    .then(printResults);
-}
-
-printResults = (users) => {
-  users.forEach(logObjects);
-}
-
-function logObjects(element, array){
-  console.log(element.id)
+    .then(success);
 }
 
 function checkStatus(response) {
@@ -30,5 +22,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { search };
+const Client = { getUsers, updateUsers };
 export default Client;
