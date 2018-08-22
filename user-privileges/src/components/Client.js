@@ -1,5 +1,7 @@
+
+const URL = 'api/v1/users';
 function getUsers(success) {
-  return fetch(`/api/v1/users`, {
+  return fetch(URL, {
     accept: 'application/json',
   }).then(checkStatus)
     .then(parseJSON)
@@ -17,10 +19,21 @@ function checkStatus(response) {
     throw error;
   }
 }
+function updateUser(id,data={first_name:"Daniel",last_name:"Francoeur"}) {
+
+    return fetch(`${URL}/${id}`, {
+        method: "PUT", //
+        headers: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+    })
+    .then(response => response.json()); // parses response to JSON
+}
 
 function parseJSON(response) {
   return response.json();
 }
 
-const Client = { getUsers, updateUsers };
+const Client = { getUsers,updateUser};
 export default Client;

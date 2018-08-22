@@ -7,6 +7,7 @@ const methods = {
   componentDidMount(props){
     Client.getUsers((users)=> {
       props.onMount(users);
+
     });
   }
 }
@@ -31,7 +32,7 @@ return  (
     </thead>
     <tbody>
     {
-      props.users.map((u, handleChange) => (
+      props.users.map((u, handleChange,index) => (
         <tr key={u.id}>
         <td>
         {u.id}

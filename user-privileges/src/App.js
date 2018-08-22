@@ -4,29 +4,13 @@ import {createStore, combineReducers } from 'redux';
 import './App.css';
 import "./semantic-dist/semantic.min.css";
 import UserList from './components/UserList';
+import Client from './components/Client';
 
 
 function reducer(state = {
   columns: ['Id','First Name','Last Name', 'Admin','Underwriter','Sales','Reviewer'],
   users:[
-    {
-      id: 1234,
-      first_name: 'Daniel',
-      last_name: 'Francoeur',
-      admin: true,
-      underwriter:false,
-      sales: false,
-      reviewer:true,
-    },
-    {
-      id: 2234,
-      first_name: 'Matt',
-      last_name: 'Rodak',
-      admin:true,
-      underwriter:false,
-      sales:true,
-      reviewer:false,
-    },
+    {}
   ],
 } , action
 ){
@@ -49,6 +33,9 @@ function reducer(state = {
       };
       default: return state;
     }
+
+  Client.updateUser(oldUser.id,updatedUser);
+
     return ({
       columns:state.columns,
       users: [
@@ -62,11 +49,6 @@ function reducer(state = {
 
 
 const store = createStore(reducer);
-
-
-
-
-
 
 
 class App extends Component {
