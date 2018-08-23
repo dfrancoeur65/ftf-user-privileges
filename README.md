@@ -14,6 +14,7 @@
 <code>
   cd <<directory>> //this is api-rails-app
 </code>
+
 <code>
   bundle install
 </code>
