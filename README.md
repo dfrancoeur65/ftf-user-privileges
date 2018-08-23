@@ -55,25 +55,34 @@ rails db:migrate
   </code>
 </p>
  <h4>Now let's start it up</h4>
-
-<p>
+<ol> 
+  <li>
+    Start the rails api server
+    <p>
   Make sure you run this command from the top directory
   <code>
 rail s -p 3000//it needs to be running on port 3000 
   </code>
 </p>
-<p>
-  <code>
+    </li>
+  <li>Start up the react server, first  
+    <code>
 cd user-privileges
   </code>
-</p>
-  <code>
+    <p>
+ <code>
   npm start //it will default to 3001 and open web browser
-  </code>       
+  </code>  
+</p>
+    </li>
+</ol>
 
-navigate to http://localhost:3001 to see the front end react app
 
-<p>This project makes use of the following: \n
+       
+
+Navigate to http://localhost:3001 to see the front end react app
+
+<p>This project makes use of the following:
   
 (The REACT app is found in */user-privileges*)
 Components:
