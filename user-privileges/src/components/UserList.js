@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+
 import List from './List';
-import { Provider, connect } from 'react-redux';
+import {connect } from 'react-redux';
+import Action from './Actions';
 
 
 
@@ -14,34 +15,20 @@ const mapStateToListProps = (state) =>(
 const mapDispatchToListProps = (dispatch) =>(
   {
     onUserUpdate: (id,role) => (
-      dispatch(updateUser(id,role))
+      dispatch(Action.updateUser(id,role))
     ),
     onMount:(users)=>(
-      dispatch(getInitialUsers(users))
+      dispatch(Action.setInitialUsers(users))
     ),
     dispatch: dispatch,
   }
 );
-function updateUser(id,role){
-  return {
-    type:role,
-    id: id,
-  };
-}
 
-const GET_INITIAL_STATE = 'GET_INITIAL_STATE'
-function getInitialUsers(users){
-  return {
-    type:GET_INITIAL_STATE,
-    users: users,
-  }
-}
 
 
 const UserList = connect(
   mapStateToListProps,
   mapDispatchToListProps,
-  //merge
 )(List)
 
 export default UserList;

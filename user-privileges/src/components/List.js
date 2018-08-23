@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import lifecycle from 'react-pure-lifecycle';
 import Client from './Client';
 
@@ -47,13 +47,16 @@ return  (
         <input type='checkbox' checked={u.admin ? true : false} onChange = { () => props.onUserUpdate(u.id,'admin')}/>
         </td>
         <td>
-        <input type='checkbox' name='underwriter' checked={u.underwriter ? true : false} onChange = { () => props.onUserUpdate(u.id,'underwriter')}/>
+        <input type='checkbox'  checked={u.underwriter ? true : false} onChange = { () => props.onUserUpdate(u.id,'underwriter')}/>
         </td>
         <td>
         <input type='checkbox' checked={u.sales ? true : false} onChange = { () => props.onUserUpdate(u.id,'sales')}/>
         </td>
         <td>
         <input type='checkbox' checked={u.reviewer ? true : false} onChange = { () => props.onUserUpdate(u.id,'reviewer')}/>
+        </td>
+        <td>
+        <input type='checkbox' checked={u.dev ? true : false} onChange = { () => props.onUserUpdate(u.id,'dev')}/>
         </td>
         </tr>
       ))

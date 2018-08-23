@@ -1,49 +1,59 @@
 import React, { Component } from 'react';
-import { Provider, connect } from 'react-redux';
-import {createStore, combineReducers } from 'redux';
+import { Provider} from 'react-redux';
+import {createStore, combineReducers} from 'redux';
 import './App.css';
 import "./semantic-dist/semantic.min.css";
 import UserList from './components/UserList';
 import Client from './components/Client';
+import UserForm from './components/UserForm';
 
+const reducer = combineReducers(
+  {
+    columns: columnsReducer,
+    users: usersReducer,
+  }
+)
 
-function reducer(state = {
-  columns: ['Id','First Name','Last Name', 'Admin','Underwriter','Sales','Reviewer'],
-  users:[
-    {}
-  ],
-} , action
-){
-  const userIndex = state.users.findIndex(
-    (u)=>u.id === action.id
-  );
-  const oldUser = state.users[userIndex];
-  let updatedUser;
-  switch(action.type){
-      case 'admin': updatedUser = Object.assign({admin: oldUser.admin = !oldUser.admin},oldUser);break;
-      case 'underwriter': updatedUser = Object.assign({admin: oldUser.underwriter = !oldUser.underwriter},oldUser); break;
-      case 'sales': updatedUser = Object.assign({admin: oldUser.sales = !oldUser.sales},oldUser); break;
-      case 'reviewer':updatedUser = Object.assign({admin: oldUser.reviewer = !oldUser.reviewer},oldUser) ; break;
-      case 'GET_INITIAL_STATE':{
-        const newUsers = action.users;
-        return ({
-          columns:state.columns,
-          users:[...newUsers],
-        })
-      };
+function columnsReducer(
+  state = ['Id','First Name','Last Name', 'Admin','Underwriter','Sales','Reviewer','Dev'],
+  action){
+    switch(action.type){
       default: return state;
     }
+  }
 
-  Client.updateUser(oldUser.id,updatedUser);
+function usersReducer(
+  state = [],
+  action
+){
 
-    return ({
-      columns:state.columns,
-      users: [
-        ...state.users.slice(0,userIndex),
-        updatedUser,
-        ...state.users.slice(userIndex+1,state.users.length),
-      ]
-    });
+  let newUsers;
+  switch(action.type){
+      case 'UPDATE_USER':{
+        let updatedUser;
+        const userIndex = state.findIndex(
+          (u) => u.id === action.id
+        );
+        const oldUser = state[userIndex];
+        const role = action.role;
+        updatedUser = oldUser;
+        updatedUser[role] = (oldUser[role] = !oldUser[role])
+        Client.updateUser(updatedUser.id,updatedUser);
+        newUsers = [
+              ...state.slice(0,userIndex),
+              updatedUser,
+              ...state.slice(userIndex+1,state.length),
+            ];
+      }; break;
+      case 'SET_INITIAL_STATE':newUsers = action.users; break;
+      case 'ADD_NEW_USER':{
+          const newUser = action.user;
+          Client.addUser(action.user);
+          newUsers = [...state,newUser]
+      }; break;
+      default: return state;
+    }
+    return newUsers;
   }
 
 
@@ -58,14 +68,18 @@ class App extends Component {
       <div className = 'ui container'>
         <h1>User</h1>
         <div className = 'ui grid'>
-          <div className = 'three column row'>
-            <div className = 'eight wide column'>
+          <div className = 'eight wide column'>
             <UserList/>
-            </div>
-            <div className = 'seven wide column'>
+          </div>
+
+          <div className = 'eight wide column'>
+            <div className = 'ui three column grid'>
+              <div className = 'twelve wide centered column'>
+              <UserForm />
+              </div>
             </div>
           </div>
-        </div>
+      </div>
     </div>
     );
   }
