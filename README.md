@@ -22,6 +22,9 @@
 cd user-privileges \n //this is the sub directory with the react app
 npm install
 </code>
+
+
+
   //now that you have everything installed, let's seed the db
   cd <<directory>> //make sure you have rails installed
   rails db:create
@@ -32,8 +35,7 @@ npm install
   cd user-privileges
   npm start //it will default to 3001 and open web browser
   //navigate to http://localhost:3001 to see the front end react app
-  
-</code>
+
 
 <p>This project makes use of the following: \n
 (The REACT app is found in */user-privileges*)
