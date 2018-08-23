@@ -1,7 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app contains an api-only rails app and a front-end client written in React.
+
+Clone the repo and run the following commands:
+
+<code>
+  npm install
+  </code>
 
 Things you may want to cover:
 
