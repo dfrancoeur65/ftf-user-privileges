@@ -12,16 +12,23 @@
 <h4>To get started, clone the repo and run the following commands:</h4>
 
 <p>
+ <p>
 <code>
   cd [cloned directory] //this is api-rails-app
 </code>
+</p>
 <p>
 <code>
   bundle install
 </code>
 </p>
+<p>
 <code>
-cd user-privileges \n //this is the sub directory with the react app
+cd user-privileges //this is the sub directory with the react app
+  </code>
+  </p>
+  <p>
+  <code>
 npm install
 </code>
 </p>
