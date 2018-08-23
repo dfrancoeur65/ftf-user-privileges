@@ -1,8 +1,15 @@
 # README
 
-This app contains an api-only rails app and a front-end client written in React.
+<h1> FTF User Privileges</h1>
+<p> App allows for a user:<p> 
+  <ol>
+    <li>to edit the roles for users</li>
+    <li>to create a new user with pre-set roles</li>
+   </ol>
+<h3>This app contains an api-only rails app and a front-end client written in React.</h3>
 
-Clone the repo and run the following commands:
+
+<h4>To get started, clone the repo and run the following commands:</h4>
 
 <code>
   cd <<directory>> //this is api-rails-app
@@ -28,7 +35,7 @@ npm install
   
 </code>
 
-This project makes use of the following:
+<p>This project makes use of the following: \n
 (The REACT app is found in */user-privileges*)
 Components:
   App
@@ -43,7 +50,8 @@ Actions:
   addUser,
   updateUser,
   setInitialUser
- 
+
 Fetch for API Calls to rails api (see /user-privileges/src/components/Client.js)
 Redux for managing state in the app 
 Things you may want to cover:
+ </p>
