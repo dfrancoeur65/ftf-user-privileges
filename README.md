@@ -33,25 +33,45 @@ npm install
 </code>
 </p>
 
+<h4>now that you have everything installed, let's seed the db</h4>
+<p>
+  <code>
+  cd [directory] 
+  </code>
+</p>
+<p>
+  <code>
+   rails db:create
+  </code>
+</p>
+<p>
+  <code>
+rails db:migrate
+  </code>
+</p>
+<p>
+  <code>
+ rails db:seed //uses Faker gem to generate some user data
+  </code>
+</p>
+ <h4>Now let's start it up</h4>
 
-  now that you have everything installed, let's seed the db
-  cd <<directory>> //make sure you have rails installed
-  rails db:create
-  
-  rails db:migrate
-  
-  rails db:seed 
-  
-  Uses Faker gem to generate fake user data
-  
-  rail s -p 3000//it needs to be running on port 3000 
-                //because this is where the client app is directing it's api requests
-  
-  cd user-privileges
-  
+<p>
+  Make sure you run this command from the top directory
+  <code>
+rail s -p 3000//it needs to be running on port 3000 
+  </code>
+</p>
+<p>
+  <code>
+cd user-privileges
+  </code>
+</p>
+  <code>
   npm start //it will default to 3001 and open web browser
-  
-  //navigate to http://localhost:3001 to see the front end react app
+  </code>       
+
+navigate to http://localhost:3001 to see the front end react app
 
 <p>This project makes use of the following: \n
   
