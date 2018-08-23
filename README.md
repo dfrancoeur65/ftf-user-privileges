@@ -13,13 +13,13 @@
 
 <p>
 <code>
-  cd <<directory>> //this is api-rails-app
+  cd [cloned directory] //this is api-rails-app
 </code>
-
+<p>
 <code>
   bundle install
 </code>
-
+</p>
 <code>
 cd user-privileges \n //this is the sub directory with the react app
 npm install
