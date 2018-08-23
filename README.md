@@ -6,10 +6,15 @@ Clone the repo and run the following commands:
 
 <code>
   cd <<directory>> //this is api-rails-app
+</code>
+<code>
   bundle install
-  cd user-privileges //this is the sub directory with the react app
-  npm install
-  
+</code>
+
+<code>
+cd user-privileges \n //this is the sub directory with the react app
+npm install
+</code>
   //now that you have everything installed, let's seed the db
   cd <<directory>> //make sure you have rails installed
   rails db:create
