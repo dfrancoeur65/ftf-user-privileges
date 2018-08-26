@@ -5,16 +5,18 @@ import Action from './Actions'
 
 
 
-const mapDispatchToFormProps = (dispatch) =>(
+const mapDispatchToFormProps = (dispatch, props) =>(
   {
     onFormSubmit: (user) =>(
       dispatch(Action.addNewUser(user))
     ),
+    onFormSwitch: () => props.onFormSwitch(),
   }
 );
 
-const mapStateToFormProps = (state) =>(
+const mapStateToFormProps = (state, props) =>(
   {
+    formOpen:props.formOpen,
     users:state.users,
   }
 );

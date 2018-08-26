@@ -5,24 +5,20 @@ import Client from './Client';
 const methods = {
 
   componentDidMount(props){
-    Client.getUsers((users)=> {
-      props.onMount(users);
-
-    });
+    props.onMount()
   }
 }
 
 const List = (props)=> {
 return  (
-
     <div>
     <h2>Our List</h2>
     <table id='userTable' className = 'ui celled table'>
     <thead>
     <tr>
     {
-      props.columns.map((header) => (
-        <th key={header}>
+      props.columns.map((header, index) => (
+        <th key={index}>
         {header}
         </th>
       ))
@@ -33,10 +29,8 @@ return  (
     <tbody>
     {
       props.users.map((u, handleChange,index) => (
-        <tr key={u.id}>
-        <td>
-        {u.id}
-        </td>
+        <tr onClick={()=>props.onRowClick(u)}
+          key={u.id}>
         <td>
         {u.first_name}
         </td>

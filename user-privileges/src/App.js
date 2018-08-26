@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Provider} from 'react-redux';
 import {createStore, combineReducers} from 'redux';
+import {Route} from 'react-router-dom';
+import AdminDashboard from './components/AdminDashboard';
 import './App.css';
 import "./semantic-dist/semantic.min.css";
-import UserList from './components/UserList';
 import Client from './components/Client';
-import UserForm from './components/UserForm';
+import TopBar from './components/TopBar'
 
 const reducer = combineReducers(
   {
@@ -15,7 +16,7 @@ const reducer = combineReducers(
 )
 
 function columnsReducer(
-  state = ['Id','First Name','Last Name', 'Admin','Underwriter','Sales','Reviewer','Dev'],
+  state = ['First Name','Last Name', 'Admin','Underwriter','Sales','Reviewer','Dev'],
   action){
     switch(action.type){
       default: return state;
@@ -66,21 +67,15 @@ class App extends Component {
   render() {
     return (
       <div className = 'ui container'>
-        <h1>User</h1>
         <div className = 'ui grid'>
-          <div className = 'eight wide column'>
-            <UserList/>
+           <TopBar />
+          <div className='spacer row'/>
+          <div className='row'>
+            <Route path='/admin-dashboard' component={AdminDashboard}/>
           </div>
-
-          <div className = 'eight wide column'>
-            <div className = 'ui three column grid'>
-              <div className = 'twelve wide centered column'>
-              <UserForm />
-              </div>
-            </div>
-          </div>
+        </div>
       </div>
-    </div>
+
     );
   }
 }

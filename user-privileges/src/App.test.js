@@ -4,8 +4,11 @@ import { shallow } from 'enzyme';
 
 
 describe ('List',() => {
+  const printTest = () => {
+    console.log("bye");
+  }
   const fakeState = {
-    columns: ['id','person'],
+    columns: ['First Name','Last Name', 'Admin','Underwriter','Sales','Reviewer','Dev'],
     users: [{
       id:1234,
       first_name:'test',
@@ -14,6 +17,7 @@ describe ('List',() => {
       underwriter:false,
       sales:true,
       reviewer:false,
+      dev:true
     }]
 
   }
@@ -21,6 +25,7 @@ describe ('List',() => {
   beforeEach(()=>{
     wrapper = shallow(
       <List
+      onMount={printTest}
       columns={fakeState.columns}
       users={fakeState.users}
       />
@@ -28,8 +33,13 @@ describe ('List',() => {
   })
 
   it('Should have a table with rows populated with user data', () => {
+    const test = wrapper.find('tr').first();
+    console.log(test.debug());
+
     expect(
-      wrapper.containsMatchingElement(<td>{fakeState.users[0].id}</td>)).toBe(true);
+      wrapper.containsMatchingElement(<td>
+        {fakeState.users[0].first_name}
+      </td>)).toBe(true);
   });
 
 })
