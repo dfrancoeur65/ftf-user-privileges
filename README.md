@@ -96,6 +96,7 @@ Navigate to http://localhost:3001 to see the front end react app
   <li>UserView</li>
   </ol>
 <li>Redux</li>
+  <ol>
   <li>Reducers:</li>
     <ol>
     <li>ColumnsReducer</li>
@@ -105,7 +106,7 @@ Navigate to http://localhost:3001 to see the front end react app
     <ol>
     <li>addUser, updateUser. setInitialUser</li>
     </ol>
-  <ol>
+  </ol>
 <li>Router</li>
 <li>Routes</li>
 </ol>
