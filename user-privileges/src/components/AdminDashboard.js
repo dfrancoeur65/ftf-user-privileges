@@ -26,7 +26,6 @@ class AdminDashboard extends Component {
     })
   }
   handleFormSwitch = () =>{
-    console.log("got here");
     this.setState({
       formOpen: this.state.formOpen = !this.state.formOpen
     })
