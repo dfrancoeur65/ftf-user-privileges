@@ -7,7 +7,6 @@ const UserView = ({user, userSelected}) =>
     { userSelected ? (
         <table>
           <thead>
-
             <tr>
               <th colSpan="2">User Information
               </th>
