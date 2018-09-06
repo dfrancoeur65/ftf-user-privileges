@@ -4,16 +4,17 @@
   "private": true,
   "proxy": "http://localhost:3000/",
   "dependencies": {
+    "humanize-plus": "^1.7.0",
     "isomorphic-fetch": "^2.2.1",
     "jest-fetch-mock": "^1.6.5",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-pure-lifecycle": "^3.0.0",
     "react-redux": "5.0.6",
+    "react-router-dom": "4.2.2",
     "react-scripts": "1.1.4",
     "redux": "3.6.0",
-    "react-router-dom": "4.2.2",
-    "humanize-plus": "^1.7.0"
+    "semantic-ui-react": "^0.82.3"
   },
   "scripts": {
     "start": "react-scripts start",

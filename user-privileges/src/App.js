@@ -7,6 +7,7 @@ import './App.css';
 import "./semantic-dist/semantic.min.css";
 import Client from './components/Client';
 import TopBar from './components/TopBar'
+import Board from './components/Board';
 
 const reducer = combineReducers(
   {
@@ -72,6 +73,7 @@ class App extends Component {
           <div className='spacer row'/>
           <div className='row'>
             <Route path='/admin-dashboard' component={AdminDashboard}/>
+            <Route path = '/test' component = {Board}/>
           </div>
         </div>
       </div>
