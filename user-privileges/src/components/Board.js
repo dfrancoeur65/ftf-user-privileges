@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ModalExample from './ModalExample';
+import TicketModal from './TicketModal';
 
 
 class Board extends Component {
@@ -14,7 +14,7 @@ class Board extends Component {
         <div className = 'six wide column'>
         <div className='spacer row'/>
           <div className = 'row'>
-            <ModalExample
+            <TicketModal
               id = '23456'
               status = 'in process'
               requester = 'Daniel'

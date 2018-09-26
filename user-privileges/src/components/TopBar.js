@@ -6,23 +6,32 @@ const TopBar = () => (
   <div
     className = 'ui huge top attached fluid secondary menu'
     >
-    <div className='item'/>
+    <div className='ui item'/>
     <Route exact path = '/' component={()=>(
       <div>
 
-      <div className = 'item'>
+      <div className = 'ui item'>
         <h1
           className = 'ui blue header'
           style={ {marginTop:'10px'}}
         >Welcome to Fund That Flip
         </h1>
       </div>
-      <div className='center menu'>
+      <div className='ui secondary vertical menu'>
       <NavLink
         className = 'ui item'
         to='/admin-dashboard'
         >Admin Rights Dashboard
       </NavLink>
+      <NavLink
+        className = 'ui item'
+        to='/open-deals'
+        >Invest
+      </NavLink>
+      <NavLink
+        className = 'ui item'
+        to ='/investor-dashboard'
+        >Investor Dashboard</NavLink>
       </div>
       </div>
       )}
@@ -38,9 +47,19 @@ const TopBar = () => (
           </h1>
         )}
         />
-    <div className='right menu'>
-      <h2 className='ui item'>Fund That Flip</h2>
-    </div>
+        <Route
+        path='/open-deals'
+        component={()=>(
+          <h1
+          className = 'ui blue header'
+          style={{ marginTop:'10px'}}
+          >
+          Offerings
+          </h1>
+        )}
+        >
+
+        </Route>
   </div>
 );
 

@@ -6,6 +6,27 @@ function setInitialUsers(users){
   }
 }
 
+const SET_AVAILABLE_OFFERINGS= 'SET_AVAILABLE_OFFERINGS';
+function setAvailableOfferings(offerings){
+  return {
+    type: SET_AVAILABLE_OFFERINGS,
+    availableOfferings: offerings,
+  }
+}
+
+const ADD_NEW_INVESTMENT = 'ADD_NEW_INVESTMENT';
+function addNewInvestment(investment){
+  return {
+    type:ADD_NEW_INVESTMENT,
+    investment:investment,
+  }
+}
+
+const SET_INVESTMENTS = 'SET_INVESTMENTS';
+function getInvestments(investments){
+
+}
+
 const UPDATE_USER = 'UPDATE_USER';
 function updateUser(id,role){
   return {
@@ -14,6 +35,7 @@ function updateUser(id,role){
     id: id,
   };
 }
+
 
 const ADD_NEW_USER = 'ADD_NEW_USER';
 function addNewUser(newUser){
@@ -27,6 +49,8 @@ const Action = {
   setInitialUsers,
   updateUser,
   addNewUser,
+  setAvailableOfferings,
+  addNewInvestment,
 }
 
 export default Action;

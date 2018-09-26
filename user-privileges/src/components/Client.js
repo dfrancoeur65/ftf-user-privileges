@@ -1,15 +1,36 @@
 
-const URL = 'api/v1/users';
+const USER_URL = 'api/v1/users';
+const INVESTMENT_URL = 'api/v1/investments';
+const OFFERINGS_URL = 'api/v1/offerings';
 function getUsers(success) {
-  return fetch(URL, {
+  return fetch(USER_URL, {
     accept: 'application/json',
   }).then(checkStatus)
     .then(parseJSON)
     .then(success);
 }
 
+function createInvestment(data){
+  return fetch(INVESTMENT_URL,{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json; charset=utf-8",
+    },
+    body:JSON.stringify(data),
+  }).then(checkStatus)
+  .then(parseJSON)
+}
+
+function getInvestments(success){
+  return fetch(INVESTMENT_URL,{
+    accept:'application/json',
+  }).then(checkStatus)
+    .then(parseJSON)
+    .then(success)
+}
+
 function addUser(data){
-  return fetch(URL,{
+  return fetch(USER_URL,{
     method: "POST",
     headers: {
         "Content-Type": "application/json; charset=utf-8",
@@ -19,9 +40,17 @@ function addUser(data){
     .then(parseJSON)
 }
 
+function getOfferings(success){
+  return fetch(OFFERINGS_URL,{
+    accept: 'application/json',
+  }).then(checkStatus)
+  .then(parseJSON)
+  .then(success)
+}
+
 function updateUser(id,data) {
 
-  return fetch(`${URL}/${id}`, {
+  return fetch(`${USER_URL}/${id}`, {
     method: "PUT", //
     headers: {
       "Content-Type": "application/json; charset=utf-8",
@@ -48,5 +77,12 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { getUsers,updateUser,addUser};
+const Client = {
+  createInvestment,
+  getUsers,
+  updateUser,
+  addUser,
+  getOfferings,
+  getInvestments,
+  };
 export default Client;

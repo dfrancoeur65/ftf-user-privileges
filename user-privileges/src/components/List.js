@@ -1,6 +1,6 @@
 import React from 'react';
 import lifecycle from 'react-pure-lifecycle';
-import Client from './Client';
+
 
 const methods = {
 
@@ -28,7 +28,7 @@ return  (
     </thead>
     <tbody>
     {
-      props.users.map((u, handleChange,index) => (
+      props.users.map((u, index) => (
         <tr onClick={()=>props.onRowClick(u)}
           key={u.id}>
         <td>

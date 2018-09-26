@@ -16,7 +16,9 @@ const mapStateToListProps = (state) =>(
 const mapDispatchToListProps = (dispatch, props) =>(
   {
     onUserUpdate: (id,role) => (
-      dispatch(Action.updateUser(id,role))
+      dispatch(
+        Action.updateUser(id,role)
+      )
     ),
     onMount:()=>Client.getUsers(
       (users)=>(

@@ -1,67 +1,21 @@
 import React, { Component } from 'react';
 import { Provider} from 'react-redux';
-import {createStore, combineReducers} from 'redux';
+import {createStore} from 'redux';
 import {Route} from 'react-router-dom';
 import AdminDashboard from './components/AdminDashboard';
 import './App.css';
 import "./semantic-dist/semantic.min.css";
-import Client from './components/Client';
 import TopBar from './components/TopBar'
 import Board from './components/Board';
-
-const reducer = combineReducers(
-  {
-    columns: columnsReducer,
-    users: usersReducer,
-  }
-)
-
-function columnsReducer(
-  state = ['First Name','Last Name', 'Admin','Underwriter','Sales','Reviewer','Dev'],
-  action){
-    switch(action.type){
-      default: return state;
-    }
-  }
-
-function usersReducer(
-  state = [],
-  action
-){
-
-  let newUsers;
-  switch(action.type){
-      case 'UPDATE_USER':{
-        let updatedUser;
-        const userIndex = state.findIndex(
-          (u) => u.id === action.id
-        );
-        const oldUser = state[userIndex];
-        const role = action.role;
-        updatedUser = oldUser;
-        updatedUser[role] = (oldUser[role] = !oldUser[role])
-        Client.updateUser(updatedUser.id,updatedUser);
-        newUsers = [
-              ...state.slice(0,userIndex),
-              updatedUser,
-              ...state.slice(userIndex+1,state.length),
-            ];
-      }; break;
-      case 'SET_INITIAL_STATE':newUsers = action.users; break;
-      case 'ADD_NEW_USER':{
-          const newUser = action.user;
-          Client.addUser(action.user);
-          newUsers = [...state,newUser]
-      }; break;
-      default: return state;
-    }
-    return newUsers;
-  }
+import AvailableOfferings from './components/AvailableOfferings';
+import Reducer from './reducers/Reducer';
+import InvestorDashboard from './components/InvestorDashboard';
 
 
 
-const store = createStore(reducer);
 
+
+const userStore = createStore(Reducer);
 
 class App extends Component {
 
@@ -74,6 +28,8 @@ class App extends Component {
           <div className='row'>
             <Route path='/admin-dashboard' component={AdminDashboard}/>
             <Route path = '/test' component = {Board}/>
+            <Route path='/open-deals' component={AvailableOfferings}/>
+            <Route path='/investor-dashboard' component={InvestorDashboard}/>
           </div>
         </div>
       </div>
@@ -82,8 +38,9 @@ class App extends Component {
   }
 }
 
+
 const WrappedApp = () => (
-  <Provider store = {store}>
+  <Provider store = {userStore}>
     <App />
   </Provider>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Header, Image, Modal , Form, TextArea, Grid} from 'semantic-ui-react';
+import { Button, Modal , TextArea, Grid} from 'semantic-ui-react';
 
-const ModalExample = (props) => (
+const TicketModal = (props) => (
   <Modal trigger={<Button>Open</Button>} centered={false}>
   <Grid>
   <h4> Issue #34534 | 34A Beecher Ave. </h4>
@@ -40,4 +40,4 @@ const ModalExample = (props) => (
   </Modal>
 )
 
-export default ModalExample;
+export default TicketModal;

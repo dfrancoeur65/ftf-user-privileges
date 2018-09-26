@@ -640,7 +640,7 @@ $.fn.modal = function(parameters) {
               $module
                 .css({
                   top: '',
-                  marginTop: -(module.cache.height / 2)
+                  marginTop: (module.cache.height / 3)
                 })
               ;
             }

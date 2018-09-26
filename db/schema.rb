@@ -10,18 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180823192325) do
-
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.boolean "admin"
-    t.boolean "underwriter"
-    t.boolean "dev"
-    t.boolean "sales"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "reviewer"
+ActiveRecord::Schema.define(version: 20_180_926_120_355) do
+  create_table 'investments', force: :cascade do |t|
+    t.integer 'offering_id'
+    t.decimal 'amount', precision: 8, scale: 2
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['offering_id'], name: 'index_investments_on_offering_id'
+    t.index ['user_id'], name: 'index_investments_on_user_id'
   end
 
+  create_table 'offerings', force: :cascade do |t|
+    t.string 'title'
+    t.string 'amount'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.decimal 'ltv'
+    t.string 'state'
+    t.decimal 'open_for_investment'
+    t.integer 'borrower_score'
+  end
+
+  create_table 'users', force: :cascade do |t|
+    t.string 'first_name'
+    t.string 'last_name'
+    t.boolean 'admin'
+    t.boolean 'underwriter'
+    t.boolean 'dev'
+    t.boolean 'sales'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.boolean 'reviewer'
+  end
 end
