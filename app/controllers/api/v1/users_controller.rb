@@ -1,3 +1,4 @@
+# user controller
 module Api::V1
   class UsersController < ApplicationController
     before_action :set_user, only: %i[show update destroy]
@@ -28,11 +29,12 @@ module Api::V1
     private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :underwriter, :admin, :sales, :dev)
+      params.require(:user).permit(:first_name, :last_name, :underwriter,
+                                   :admin, :sales, :dev)
     end
 
     def set_user
       @user = User.find(params[:id])
     end
-end
+  end
 end

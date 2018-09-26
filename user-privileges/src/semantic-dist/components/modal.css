@@ -14,10 +14,11 @@
 *******************************/
 
 .ui.modal {
+  margin-top: 0 !important;
   display: none;
   position: fixed;
   z-index: 1001;
-  top: 50%;
+  top: 0%;
   left: 50%;
   text-align: left;
   background: #FFFFFF;
@@ -270,7 +271,7 @@
     padding: 1rem 0rem !important;
     box-shadow: none;
   }
-  
+
 /* Let Buttons Stack */
   .ui.modal > .actions {
     padding: 1rem 1rem 0rem !important;
@@ -499,4 +500,3 @@
 /*******************************
          Site Overrides
 *******************************/
-
