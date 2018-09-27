@@ -3,7 +3,7 @@ module Api::V1
   class InvestmentsController < ApplicationController
     def index
       @investments = Investment.all
-      render json: @investments
+      render json: @investments, include: [:offering]
     end
 
     def create

@@ -23,8 +23,11 @@ function addNewInvestment(investment){
 }
 
 const SET_INVESTMENTS = 'SET_INVESTMENTS';
-function getInvestments(investments){
-
+function setInvestments(investments){
+  return{
+    type:SET_INVESTMENTS,
+    investments:investments,
+  };
 }
 
 const UPDATE_USER = 'UPDATE_USER';
@@ -51,6 +54,7 @@ const Action = {
   addNewUser,
   setAvailableOfferings,
   addNewInvestment,
+  setInvestments,
 }
 
 export default Action;

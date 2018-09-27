@@ -1,4 +1,4 @@
 class Investment < ApplicationRecord
   belongs_to :user
-  has_one :offering
+  belongs_to :offering
 end

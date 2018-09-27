@@ -7,7 +7,7 @@ const TopBar = () => (
     className = 'ui huge top attached fluid secondary menu'
     >
     <div className='ui item'/>
-    <Route exact path = '/' component={()=>(
+    <Route path = '/' component={()=>(
       <div>
 
       <div className = 'ui item'>
@@ -17,7 +17,7 @@ const TopBar = () => (
         >Welcome to Fund That Flip
         </h1>
       </div>
-      <div className='ui secondary vertical menu'>
+      <div className='ui secondary horizontal menu'>
       <NavLink
         className = 'ui item'
         to='/admin-dashboard'
@@ -36,30 +36,7 @@ const TopBar = () => (
       </div>
       )}
       />
-      <Route
-        path= '/admin-dashboard'
-        component={()=>(
-          <h1
-          className = 'ui blue header'
-          style={{ marginTop:'10px'}}
-          >
-          Admin Rights Dashboard
-          </h1>
-        )}
-        />
-        <Route
-        path='/open-deals'
-        component={()=>(
-          <h1
-          className = 'ui blue header'
-          style={{ marginTop:'10px'}}
-          >
-          Offerings
-          </h1>
-        )}
-        >
 
-        </Route>
   </div>
 );
 

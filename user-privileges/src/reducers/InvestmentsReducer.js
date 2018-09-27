@@ -11,7 +11,9 @@ const InvestmentsReducer = (
       Client.createInvestment(newInvestment);
       investments =[...state,newInvestment];
     }; break;
-    case 'SET_INVESTMENTS':
+    case 'SET_INVESTMENTS':{
+      investments=action.investments;break;
+    }
     default: return state;
   }
   return investments;
