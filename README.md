@@ -8,6 +8,8 @@
    </ol>
 <h3>This app contains an api-only rails app and a front-end client written in React.</h3>
 
+![image](https://user-images.githubusercontent.com/20305914/46118346-11c2b280-c1d4-11e8-890c-25f512330768.png)
+
 
 <h4>To get started, clone the repo and run the following commands:</h4>
 
