@@ -5,6 +5,7 @@
   <ol>
     <li>to edit the roles for users</li>
     <li>to create a new user with pre-set roles</li>
+    <li>select an offering, invest in the offering, and view investments from your investor dashboard</li>
    </ol>
 <h3>This app contains an api-only rails app and a front-end client written in React.</h3>
 
