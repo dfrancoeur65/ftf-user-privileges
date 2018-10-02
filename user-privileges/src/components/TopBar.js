@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, NavLink} from 'react-router-dom';
+import {Route, NavLink, Link} from 'react-router-dom';
 
 
 const TopBar = () => (
@@ -14,7 +14,7 @@ const TopBar = () => (
         <h1
           className = 'ui blue header'
           style={ {marginTop:'10px'}}
-        >Welcome to Fund That Flip
+        ><Link to='/'>Welcome to Fund That Flip</Link>
         </h1>
       </div>
       <div className='ui secondary horizontal menu'>
