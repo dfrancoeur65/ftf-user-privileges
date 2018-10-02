@@ -1,6 +1,7 @@
 import React from 'react';
 import Humanize from 'humanize-plus';
 import {Dropdown} from 'semantic-ui-react';
+import {toDollar} from '../helpers/formatting';
 
 
 
@@ -32,12 +33,7 @@ handleInvestedInvestment = (investment) =>{
   this.props.editInvestment(investment);
 }
 
-  toDollar = (dollar) =>{
-    let d = new Number(dollar)
-    return(
-      d.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
-    )
-  };
+
 
 
   prettyDates = (date) =>{
@@ -80,7 +76,7 @@ handleInvestedInvestment = (investment) =>{
                   {investment.offering.title}
                   </td>
                   <td>
-                  {this.toDollar(investment.amount)}
+                  {toDollar(investment.amount)}
                   </td>
                   <td>
                   {this.prettyDates(investment.created_at)}

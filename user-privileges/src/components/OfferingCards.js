@@ -2,6 +2,7 @@ import React, {Component,propTypes} from 'react';
 import {Button, Modal,  Form} from 'semantic-ui-react';
 import Humanize from 'humanize-plus';
 import PropTypes from 'prop-types';
+import {toRoundedDollar} from '../helpers/formatting';
 
 
 const inlineStyle = {
@@ -156,7 +157,7 @@ render(){
         Open for Investment
         </td>
         <td>
-        {offering.open_for_investment.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).slice(0,-3)}
+        {toRoundedDollar(offering.open_for_investment)}
         </td>
         </tr>
         <tr>
@@ -164,7 +165,7 @@ render(){
         Total Loan Amount
         </td>
         <td>
-          {offering.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).slice(0,-3)}
+          {toRoundedDollar(offering.amount)}
         </td>
         </tr>
         </tbody>
