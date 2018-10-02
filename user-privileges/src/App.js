@@ -6,13 +6,9 @@ import AdminDashboard from './components/AdminDashboard';
 import './App.css';
 import "./semantic-dist/semantic.min.css";
 import TopBar from './components/TopBar'
-import Board from './components/Board';
 import AvailableOfferings from './components/AvailableOfferings';
-import Reducer from './reducers/Reducer';
+import Reducer from './redux/modules/Reducer';
 import InvestorDashboard from './components/InvestorDashboard';
-
-
-
 
 
 const userStore = createStore(Reducer);
@@ -27,7 +23,6 @@ class App extends Component {
           <div className='spacer row'/>
           <div className='row'>
             <Route path='/admin-dashboard' component={AdminDashboard}/>
-            <Route path = '/test' component = {Board}/>
             <Route path='/open-deals' component={AvailableOfferings}/>
             <Route path='/investor-dashboard' component={InvestorDashboard}/>
           </div>

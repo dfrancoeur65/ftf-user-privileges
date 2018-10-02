@@ -15,30 +15,6 @@ function setAvailableOfferings(offerings){
   }
 }
 
-const ADD_NEW_INVESTMENT = 'ADD_NEW_INVESTMENT';
-function addNewInvestment(investment){
-  return {
-    type:ADD_NEW_INVESTMENT,
-    investment:investment,
-  }
-}
-
-const UPDATE_INVESTMENT = 'UPDATE_INVESTMENT';
-function updateInvestment(investment){
-  return{
-    type:UPDATE_INVESTMENT,
-    investment:investment,
-  }
-}
-
-const SET_INVESTMENTS = 'SET_INVESTMENTS';
-function setInvestments(investments){
-  return{
-    type:SET_INVESTMENTS,
-    investments:investments,
-  };
-}
-
 const UPDATE_USER = 'UPDATE_USER';
 function updateUser(id,role){
   return {
@@ -62,9 +38,8 @@ const Action = {
   updateUser,
   addNewUser,
   setAvailableOfferings,
-  addNewInvestment,
-  setInvestments,
-  updateInvestment,
+
+
 }
 
 export default Action;

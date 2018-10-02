@@ -1,4 +1,4 @@
-import Client from '../components/Client';
+import Client from '../../components/Client';
 
 const UsersReducer = (
   state=[],

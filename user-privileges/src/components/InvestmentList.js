@@ -6,7 +6,7 @@ import {Dropdown} from 'semantic-ui-react';
 
 class InvestmentList extends React.Component{
   state = {
-    columns:['Investment','Offering','Amount','Investment Date','Investment Status','Actions'],
+    columns:['Investment','Offering','Amount','Investment Date','Investment Status','Cancel','Refund','Invest'],
     investmentsOpenForEditing: [],
     statuses:[
       {text:"Received"},
@@ -23,6 +23,14 @@ handleCancelledInvestment = (investment) =>{
   this.props.editInvestment(investment);
 }
 
+handleRefundedInvestment = (investment) =>{
+  investment.status = 'refunded';
+  this.props.editInvestment(investment);
+}
+handleInvestedInvestment = (investment) =>{
+  investment.status = 'invested';
+  this.props.editInvestment(investment);
+}
 
   toDollar = (dollar) =>{
     let d = new Number(dollar)
@@ -77,11 +85,17 @@ handleCancelledInvestment = (investment) =>{
                   <td>
                   {this.prettyDates(investment.created_at)}
                   </td>
-                  <td style={{color:investment.status === 'cancelled' ? "red":"green"}}>
-                  {investment.status}
+                  <td style={{color:investment.status === 'cancelled' ? "red": investment.status==='refunded' ? 'blue' : 'green'}}>
+                  {Humanize.capitalize(investment.status)}
                   </td>
                   <td>
                   <div className='ui button' onClick = {()=>this.handleCancelledInvestment(investment)}>Cancel</div>
+                  </td>
+                  <td>
+                  <div className='ui button' onClick = {()=>this.handleRefundedInvestment(investment)}>Refund</div>
+                  </td>
+                  <td>
+                  <div className='ui button' onClick = {()=>this.handleInvestedInvestment(investment)}>Invest</div>
                   </td>
                   </tr>
                 )

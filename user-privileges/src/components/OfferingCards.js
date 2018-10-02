@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component,propTypes} from 'react';
 import {Button, Modal,  Form} from 'semantic-ui-react';
 import Humanize from 'humanize-plus';
+import PropTypes from 'prop-types';
 
 
 const inlineStyle = {
@@ -14,6 +15,9 @@ const inlineStyle = {
 
 class OfferingCards extends Component {
 
+static propTypes = {
+  availableOfferings: PropTypes.array,
+}
 state = {
   modalOpen:false,
   investmentSuccessOpen:false,
