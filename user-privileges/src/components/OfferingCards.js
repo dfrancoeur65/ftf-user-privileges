@@ -25,6 +25,7 @@ state = {
     amount: null,
     offering_id: null,
     bankAccount:37,
+    title: null,
   },
   fieldErrors:{
 
@@ -72,6 +73,7 @@ handleBankAccountChange = evt =>{
 }
 onFormSubmit = (evt)=>{
   const investment = Object.assign({},this.state.form);
+  investment.offering = {title:this.state.form.title};
   const fieldErrors = this.validate(investment)
   this.setState({fieldErrors:fieldErrors});
   evt.preventDefault();
@@ -82,6 +84,7 @@ onFormSubmit = (evt)=>{
       user_id:null,
       amount: null,
       offering_id:null,
+      title:null
     },
     modalOpen:false,
     investmentSuccessOpen:true,
@@ -97,6 +100,7 @@ validate = investment =>{
 onInvestmentClick= (offering) =>{
   const newForm = Object.assign({}, this.state.form);
   newForm.offering_id = offering.id;
+  newForm.title = offering.title;
   newForm.user_id = this.state.currentUser.id
   this.setState({
     form:newForm,

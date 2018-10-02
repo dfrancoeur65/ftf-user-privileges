@@ -14,6 +14,18 @@ const InvestmentsReducer = (
     case 'SET_INVESTMENTS':{
       investments=action.investments;break;
     }
+    case 'UPDATE_INVESTMENT':{
+      let updatedInvestment = action.investment;
+      const investmentIndex = state.findIndex(
+        (i) => i.id === action.investment.id
+      );
+      Client.updateInvestment(updatedInvestment);
+      investments = [
+        ...state.slice(0,investmentIndex),
+        updatedInvestment,
+        ...state.slice(investmentIndex+1,state.length),
+      ];
+    }; break;
     default: return state;
   }
   return investments;

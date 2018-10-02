@@ -22,6 +22,14 @@ function addNewInvestment(investment){
   }
 }
 
+const UPDATE_INVESTMENT = 'UPDATE_INVESTMENT';
+function updateInvestment(investment){
+  return{
+    type:UPDATE_INVESTMENT,
+    investment:investment,
+  }
+}
+
 const SET_INVESTMENTS = 'SET_INVESTMENTS';
 function setInvestments(investments){
   return{
@@ -55,6 +63,7 @@ const Action = {
   setAvailableOfferings,
   addNewInvestment,
   setInvestments,
+  updateInvestment,
 }
 
 export default Action;

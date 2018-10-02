@@ -11,7 +11,11 @@ const mapDispatchToInvestmentListProps = (dispatch,props)=>(
           Action.setInvestments(investments)
         )
       )
-    )
+    ),
+    editInvestment:(investment) => dispatch(
+      Action.updateInvestment(investment)
+    ),
+
   }
 );
 

@@ -1,13 +1,27 @@
 import React from 'react';
 import Humanize from 'humanize-plus';
+import {Dropdown} from 'semantic-ui-react';
+
+
 
 class InvestmentList extends React.Component{
   state = {
-    columns:['Investment ID','Offering','Amount','Investment Date'],
+    columns:['Investment','Offering','Amount','Investment Date','Investment Status','Actions'],
+    investmentsOpenForEditing: [],
+    statuses:[
+      {text:"Received"},
+      {text:"Invested"},
+      {text:"Not Received"},
+    ],
   }
   componentDidMount(){
     this.props.onMount();
   }
+
+handleCancelledInvestment = (investment) =>{
+  investment.status = 'cancelled';
+  this.props.editInvestment(investment);
+}
 
 
   toDollar = (dollar) =>{
@@ -16,6 +30,8 @@ class InvestmentList extends React.Component{
       d.toLocaleString('en-US', {style: 'currency', currency: 'USD'})
     )
   };
+
+
   prettyDates = (date) =>{
     let d = new Date(date);
 
@@ -26,7 +42,6 @@ class InvestmentList extends React.Component{
   };
 
   render(){
-
     return  (
         <div>
         <h2>My Investments</h2>
@@ -45,24 +60,32 @@ class InvestmentList extends React.Component{
         </thead>
         <tbody>
         {
-          this.props.investments.map((investment) => (
-            <tr
-              key={investment.id}
-            >
-            <td>
-            {investment.id}
-            </td>
-            <td>
-            {investment.offering.title}
-            </td>
-            <td>
-            {this.toDollar(investment.amount)}
-            </td>
-            <td>
-            {this.prettyDates(investment.created_at)}
-            </td>
-            </tr>
-          ))
+            this.props.investments.map((investment,index) =>
+                (
+                  <tr
+                  key={index+1}
+                  >
+                  <td>
+                  {index+1}
+                  </td>
+                  <td>
+                  {investment.offering.title}
+                  </td>
+                  <td>
+                  {this.toDollar(investment.amount)}
+                  </td>
+                  <td>
+                  {this.prettyDates(investment.created_at)}
+                  </td>
+                  <td style={{color:investment.status === 'cancelled' ? "red":"green"}}>
+                  {Humanize.capitalize(investment.status)}
+                  </td>
+                  <td>
+                  <div className='ui button' onClick = {()=>this.handleCancelledInvestment(investment)}>Cancel</div>
+                  </td>
+                  </tr>
+                )
+                )
         }
         </tbody>
         </table>
