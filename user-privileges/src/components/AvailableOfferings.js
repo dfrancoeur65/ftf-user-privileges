@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {addNewInvestment} from '../redux/modules/InvestmentsReducer';
-import Action from './Actions';
+import {setAvailableOfferings} from '../redux/modules/OfferingsReducer';
 import Client from './Client';
 import OfferingCards from './OfferingCards';
 
@@ -9,7 +9,7 @@ const mapDispatchToOfferingCardsProps = (dispatch, props) =>(
   onMount:()=>Client.getOfferings(
     (offerings)=>(
       dispatch(
-        Action.setAvailableOfferings(offerings)
+        setAvailableOfferings(offerings)
       )
     )
   ),

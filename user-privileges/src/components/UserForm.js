@@ -1,14 +1,14 @@
 
 import Form from './Form';
 import { connect } from 'react-redux';
-import Action from './Actions'
+import {addNewUser} from '../redux/modules/UsersReducer';
 
 
 
 const mapDispatchToFormProps = (dispatch, props) =>(
   {
     onFormSubmit: (user) =>(
-      dispatch(Action.addNewUser(user))
+      dispatch(addNewUser(user))
     ),
     onFormSwitch: () => props.onFormSwitch(),
   }
