@@ -8,6 +8,7 @@ function setInitialUsers(users){
 
 const SET_AVAILABLE_OFFERINGS= 'SET_AVAILABLE_OFFERINGS';
 function setAvailableOfferings(offerings){
+
   return {
     type: SET_AVAILABLE_OFFERINGS,
     availableOfferings: offerings,

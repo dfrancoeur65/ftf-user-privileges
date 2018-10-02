@@ -78,7 +78,7 @@ handleCancelledInvestment = (investment) =>{
                   {this.prettyDates(investment.created_at)}
                   </td>
                   <td style={{color:investment.status === 'cancelled' ? "red":"green"}}>
-                  {Humanize.capitalize(investment.status)}
+                  {investment.status}
                   </td>
                   <td>
                   <div className='ui button' onClick = {()=>this.handleCancelledInvestment(investment)}>Cancel</div>

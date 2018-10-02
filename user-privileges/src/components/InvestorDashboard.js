@@ -3,6 +3,7 @@ import Action from './Actions';
 import Client from './Client';
 import InvestmentList from './InvestmentList';
 
+
 const mapDispatchToInvestmentListProps = (dispatch,props)=>(
   {
     onMount:() =>Client.getInvestments(

@@ -20,6 +20,7 @@ const InvestmentsReducer = (
         (i) => i.id === action.investment.id
       );
       Client.updateInvestment(updatedInvestment);
+
       investments = [
         ...state.slice(0,investmentIndex),
         updatedInvestment,
