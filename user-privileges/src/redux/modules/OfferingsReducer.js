@@ -1,3 +1,4 @@
+const SET_AVAILABLE_OFFERINGS= 'SET_AVAILABLE_OFFERINGS';
 
 const OfferingsReducer = (
   state = [],
@@ -5,13 +6,12 @@ const OfferingsReducer = (
 )=>{
   let allOfferings;
   switch(action.type){
-      case 'SET_AVAILABLE_OFFERINGS': allOfferings = action.availableOfferings; break;
+      case SET_AVAILABLE_OFFERINGS: allOfferings = action.availableOfferings; break;
       default: return state;
     }
     return allOfferings;
   }
 
-  const SET_AVAILABLE_OFFERINGS= 'SET_AVAILABLE_OFFERINGS';
   export function setAvailableOfferings(offerings){
 
     return {

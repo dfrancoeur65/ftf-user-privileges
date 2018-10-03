@@ -1,7 +1,7 @@
 import React from 'react';
 import Humanize from 'humanize-plus';
 import {Dropdown} from 'semantic-ui-react';
-import {toDollar} from '../helpers/formatting';
+import {toDollar,prettyDates} from '../helpers/formatting';
 
 
 
@@ -36,14 +36,6 @@ handleInvestedInvestment = (investment) =>{
 
 
 
-  prettyDates = (date) =>{
-    let d = new Date(date);
-
-    return(
-        d.toLocaleDateString()
-    )
-
-  };
 
   render(){
     return  (
@@ -79,7 +71,7 @@ handleInvestedInvestment = (investment) =>{
                   {toDollar(investment.amount)}
                   </td>
                   <td>
-                  {this.prettyDates(investment.created_at)}
+                  {prettyDates(investment.created_at)}
                   </td>
                   <td style={{color:investment.status === 'cancelled' ? "red": investment.status==='refunded' ? 'blue' : 'green'}}>
                   {Humanize.capitalize(investment.status)}
