@@ -21,6 +21,17 @@ function createInvestment(data){
   .then(parseJSON)
 }
 
+function updateInvestment(data){
+  return fetch(`${INVESTMENT_URL}/${data.id}`, {
+    method:"PUT",
+    headers: {
+      "Content-Type":"application/json; charset=utf-8",
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json());
+}
+
 function getInvestments(success){
   return fetch(INVESTMENT_URL,{
     accept:'application/json',
@@ -84,5 +95,6 @@ const Client = {
   addUser,
   getOfferings,
   getInvestments,
+  updateInvestment,
   };
 export default Client;

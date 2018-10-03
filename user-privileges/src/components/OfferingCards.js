@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component,propTypes} from 'react';
 import {Button, Modal,  Form} from 'semantic-ui-react';
 import Humanize from 'humanize-plus';
+import PropTypes from 'prop-types';
+import {toRoundedDollar} from '../helpers/formatting';
 
 
 const inlineStyle = {
@@ -14,6 +16,9 @@ const inlineStyle = {
 
 class OfferingCards extends Component {
 
+static propTypes = {
+  availableOfferings: PropTypes.array,
+}
 state = {
   modalOpen:false,
   investmentSuccessOpen:false,
@@ -25,6 +30,7 @@ state = {
     amount: null,
     offering_id: null,
     bankAccount:37,
+    title: null,
   },
   fieldErrors:{
 
@@ -72,6 +78,7 @@ handleBankAccountChange = evt =>{
 }
 onFormSubmit = (evt)=>{
   const investment = Object.assign({},this.state.form);
+  investment.offering = {title:this.state.form.title};
   const fieldErrors = this.validate(investment)
   this.setState({fieldErrors:fieldErrors});
   evt.preventDefault();
@@ -82,6 +89,7 @@ onFormSubmit = (evt)=>{
       user_id:null,
       amount: null,
       offering_id:null,
+      title:null
     },
     modalOpen:false,
     investmentSuccessOpen:true,
@@ -97,6 +105,7 @@ validate = investment =>{
 onInvestmentClick= (offering) =>{
   const newForm = Object.assign({}, this.state.form);
   newForm.offering_id = offering.id;
+  newForm.title = offering.title;
   newForm.user_id = this.state.currentUser.id
   this.setState({
     form:newForm,
@@ -148,7 +157,7 @@ render(){
         Open for Investment
         </td>
         <td>
-        {offering.open_for_investment.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).slice(0,-3)}
+        {toRoundedDollar(offering.open_for_investment)}
         </td>
         </tr>
         <tr>
@@ -156,7 +165,7 @@ render(){
         Total Loan Amount
         </td>
         <td>
-          {offering.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }).slice(0,-3)}
+          {toRoundedDollar(offering.amount)}
         </td>
         </tr>
         </tbody>

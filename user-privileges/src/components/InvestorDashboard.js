@@ -1,17 +1,22 @@
 import {connect} from 'react-redux';
-import Action from './Actions';
+import {updateInvestment,setInvestments} from '../redux/modules/InvestmentsReducer';
 import Client from './Client';
 import InvestmentList from './InvestmentList';
+
 
 const mapDispatchToInvestmentListProps = (dispatch,props)=>(
   {
     onMount:() =>Client.getInvestments(
       (investments)=>(
         dispatch(
-          Action.setInvestments(investments)
+          setInvestments(investments)
         )
       )
-    )
+    ),
+    editInvestment:(investment) => dispatch(
+      updateInvestment(investment)
+    ),
+
   }
 );
 
